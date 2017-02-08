@@ -12,6 +12,11 @@ type MCPIConnection struct {
 	Chat   Chat
 }
 
+func Start() MCPIConnection {
+	con, _ := Connect("localhost", "4711");
+	return con;
+}
+
 func Connect(host, port string) (MCPIConnection, error) {
 	var mcConn MCPIConnection
 	conn, err := net.Dial("tcp", host+":"+port)
